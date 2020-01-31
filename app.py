@@ -164,8 +164,8 @@ def create_label_location():
     label_id = int(request.form['label_id'])
     trigger = request.form['trigger']
     address = request.form['address']
-    lat = request.form['lat']
-    long = request.form['long']
+    lat = float(request.form['lat'])
+    long = float(request.form['long'])
     radius = float(request.form.get('radius', 300))
     location_label = LocationLabel(
         user=user,
