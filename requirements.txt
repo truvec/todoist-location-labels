@@ -1,6 +1,6 @@
 psycopg2
 gunicorn
-todoist-python==0.2.13
+todoist-python==8.1.1
 requests
 Flask
 Flask-SQLAlchemy
