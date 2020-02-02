@@ -198,8 +198,9 @@ def webhook():
     user = User.query.get(initiator['id'])
     api = todoist.TodoistAPI(user.oauth_token)
     api.sync()
+    test_loc = api.reminders.all()
     item_reminders = list(filter(lambda x: x['type'] == 'location' and x['item_id']==event_data['id'] , api.reminders.all()))
-    app.logger.info('Item Reminders: %s', item_reminders)
+    app.logger.info('Item Reminders: %s', test_loc)
     not_used_location_labels = user.location_labels.filter(~LocationLabel.label_id.in_(event_data['labels'])).all()
     to_be_deleted_reminders = list(filter(lambda x: x['name'] in map(lambda y: y.name, not_used_location_labels) and x['loc_trigger'] in map(lambda y: y.loc_trigger, not_used_location_labels) and x['radius'] in map(lambda y: y.radius, not_used_location_labels), item_reminders))
     for reminder in to_be_deleted_reminders:
