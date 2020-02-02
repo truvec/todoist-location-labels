@@ -184,7 +184,7 @@ def create_label_location():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     event = request.json
-    # app.logger.info('Full event: %s', event)
+    app.logger.info('Full event: %s', event)
     if event['event_name'] not in ['item:added', 'item:updated']:
         return ''
     initiator = event['initiator']
