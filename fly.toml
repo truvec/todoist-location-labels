@@ -1,20 +1,19 @@
-# fly.toml file generated for dcw-sm-comments on 2022-08-27T16:33:03-05:00
+# fly.toml file generated for dcw-todoist-location on 2022-08-29T17:26:37-05:00
 
-app = "dcw-sm-comments"
+app = "dcw-todoist-location"
 kill_signal = "SIGINT"
 kill_timeout = 5
+processes = []
+
+[build]
+  builder = "paketobuildpacks/builder:base"
 
 [env]
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
-  cmd = []
-  entrypoint = []
-  exec = []
-
-[processes]
-  app = "npm start"
 
 [[services]]
   http_checks = []
